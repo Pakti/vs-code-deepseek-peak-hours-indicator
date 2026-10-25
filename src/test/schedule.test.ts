@@ -54,5 +54,5 @@ test('tooltip formats local time, today, tomorrow and a later date', () => {
   const now = new Date(2026, 9, 26, 2);
   assert.equal(formatStatusTooltip(now, new Date(2026, 9, 26, 4), true), 'PEAK until 04:00');
   assert.equal(formatStatusTooltip(now, new Date(2026, 9, 27, 1), false), 'OFF-PEAK until tomorrow at 01:00');
-  assert.equal(formatStatusTooltip(now, new Date(2026, 9, 29, 1), false), 'OFF-PEAK until Thu, Oct 29 at 01:00');
+  assert.equal(formatStatusTooltip(now, new Date(2026, 9, 29, 1), false), 'OFF-PEAK until Thursday at 01:00');
 });
