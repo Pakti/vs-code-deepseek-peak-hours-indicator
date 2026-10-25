@@ -15,6 +15,14 @@ Requires Node.js 20+ and npm. Run `npm install`, then `npm test`. In VS Code, pr
 
 To produce a distributable extension, run `npm run package`, then install the resulting VSIX with **Extensions: Install from VSIX...**.
 
+## Tooltip
+
+Hover over the indicator to see the next actual status change in your computer's
+local timezone, using a 24-hour clock. For example: `PEAK until 12:00`,
+`OFF-PEAK until tomorrow at 08:00`, or
+`OFF-PEAK until Mon, Oct 26 at 02:00`. Public holidays and weekends are
+skipped when calculating the next switch. The tooltip refreshes automatically.
+
 ## Colors
 
 The status bar **text** is colored, not the item background. Defaults on dark themes are red `#c56b6b` and green `#79ae89`. Customize using:
