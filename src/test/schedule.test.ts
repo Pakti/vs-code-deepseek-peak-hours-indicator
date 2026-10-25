@@ -52,7 +52,7 @@ test('next actual transition skips an excluded public holiday', () => {
 test('tooltip formats local time, today, tomorrow and a later date', () => {
   // Date(year, month, day, hour) uses the machine's local timezone.
   const now = new Date(2026, 9, 26, 2);
-  assert.equal(formatStatusTooltip(now, new Date(2026, 9, 26, 4), true), 'PEAK until 04:00');
-  assert.equal(formatStatusTooltip(now, new Date(2026, 9, 27, 1), false), 'OFF-PEAK until tomorrow at 01:00');
-  assert.equal(formatStatusTooltip(now, new Date(2026, 9, 29, 1), false), 'OFF-PEAK until Thursday at 01:00');
+  assert.equal(formatStatusTooltip(now, new Date(2026, 9, 26, 4), true), 'DeepSeek is PEAK until 04:00');
+  assert.equal(formatStatusTooltip(now, new Date(2026, 9, 27, 1), false), 'DeepSeek is OFF-PEAK until tomorrow at 01:00');
+  assert.equal(formatStatusTooltip(now, new Date(2026, 9, 29, 1), false), 'DeepSeek is OFF-PEAK until Thursday at 01:00');
 });
