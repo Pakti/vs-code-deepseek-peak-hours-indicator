@@ -3,7 +3,7 @@
 A lightweight VS Code status-bar indicator for DeepSeek UTC peak hours.
 
 - **PEAK** in muted red, Monday-Friday at **01:00-04:00 UTC** and **06:00-10:00 UTC**.
-- **OFF-PEAK** in muted green otherwise, including Chinese public holidays.
+- **OFF-PEAK** in the default status-bar foreground color otherwise, including Chinese public holidays.
 - Both ranges are inclusive at the start and exclusive at the end.
 - Weekends are always off-peak, even if marked as make-up working days in China.
 - Uses **UTC date** for holiday lookup as well as UTC time for the schedule.
@@ -20,18 +20,17 @@ To produce a distributable extension, run `npm run package`, then install the re
 Hover over the indicator to see the next actual status change in your computer's
 local timezone, using a 24-hour clock. For example: `PEAK until 12:00`,
 `OFF-PEAK until tomorrow at 08:00`, or
-`OFF-PEAK until Mon, Oct 26 at 02:00`. Public holidays and weekends are
+`OFF-PEAK until Monday at 02:00`. Public holidays and weekends are
 skipped when calculating the next switch. The tooltip refreshes automatically.
 
 ## Colors
 
-The status bar **text** is colored, not the item background. Defaults on dark themes are red `#c56b6b` and green `#79ae89`. Customize using:
+The status bar **text** is colored, not the item background. The **PEAK** text defaults to muted red (`#c56b6b` on dark themes); **OFF-PEAK** uses the theme's default foreground. Customize the peak color using:
 
 ```json
 {
   "workbench.colorCustomizations": {
-    "deepseekPeakHours.peakForeground": "#c56b6b",
-    "deepseekPeakHours.offPeakForeground": "#79ae89"
+    "deepseekPeakHours.peakForeground": "#c56b6b"
   }
 }
 ```
