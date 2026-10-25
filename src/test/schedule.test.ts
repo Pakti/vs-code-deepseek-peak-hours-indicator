@@ -50,9 +50,9 @@ test('next actual transition skips an excluded public holiday', () => {
 });
 
 test('tooltip formats local time, today, tomorrow and a later date', () => {
-  // Run under TZ=UTC in CI for deterministic local date expectations.
-  const now = at('2026-10-26T02:00:00Z');
-  assert.equal(formatStatusTooltip(now, at('2026-10-26T04:00:00Z'), true), 'PEAK until 04:00');
-  assert.equal(formatStatusTooltip(now, at('2026-10-27T01:00:00Z'), false), 'OFF-PEAK until tomorrow at 01:00');
-  assert.equal(formatStatusTooltip(now, at('2026-10-29T01:00:00Z'), false), 'OFF-PEAK until Thu, Oct 29 at 01:00');
+  // Date(year, month, day, hour) uses the machine's local timezone.
+  const now = new Date(2026, 9, 26, 2);
+  assert.equal(formatStatusTooltip(now, new Date(2026, 9, 26, 4), true), 'PEAK until 04:00');
+  assert.equal(formatStatusTooltip(now, new Date(2026, 9, 27, 1), false), 'OFF-PEAK until tomorrow at 01:00');
+  assert.equal(formatStatusTooltip(now, new Date(2026, 9, 29, 1), false), 'OFF-PEAK until Thu, Oct 29 at 01:00');
 });
