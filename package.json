@@ -1,1 +1,46 @@
-{"name":"vs-code-deepseek-peak-hours-indicator","displayName":"DeepSeek Peak Hours Indicator","description":"Shows DeepSeek UTC peak hours in the VS Code status bar, excluding Chinese public holidays.","version":"0.1.0","publisher":"pakti","license":"MIT","engines":{"vscode":"^1.85.0"},"categories":["Other"],"activationEvents":["onStartupFinished"],"main":"./out/extension.js","contributes":{"colors":[{"id":"deepseekPeakHours.peakForeground","description":"Text color during DeepSeek peak hours.","defaults":{"dark":"#c56b6b","light":"#a44848","highContrast":"#ff8888","highContrastLight":"#a44848"}},{"id":"deepseekPeakHours.offPeakForeground","description":"Text color during DeepSeek off-peak hours.","defaults":{"dark":"#79ae89","light":"#437c55","highContrast":"#8cdda5","highContrastLight":"#437c55"}}]},"scripts":{"compile":"tsc -p ./","test":"npm run compile && node --test out/test/*.test.js","package":"npm run compile && vsce package"},"dependencies":{"date-holidays":"^3.26.0"},"devDependencies":{"@types/node":"^20.17.0","@types/vscode":"^1.85.0","typescript":"^5.6.0","@vscode/vsce":"^3.2.0"}}
+{
+  "name": "vs-code-deepseek-peak-hours-indicator",
+  "displayName": "DeepSeek Peak Hours Indicator",
+  "description": "Shows DeepSeek UTC peak hours in the VS Code status bar, excluding Chinese public holidays.",
+  "version": "0.1.0",
+  "publisher": "pakti",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "colors": [
+      {
+        "id": "deepseekPeakHours.peakForeground",
+        "description": "Text color during DeepSeek peak hours.",
+        "defaults": {
+          "dark": "#c56b6b",
+          "light": "#a44848",
+          "highContrast": "#ff8888",
+          "highContrastLight": "#a44848"
+        }
+      }
+    ]
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "test": "npm run compile && node --test out/test/*.test.js",
+    "package": "npm run compile && vsce package"
+  },
+  "dependencies": {
+    "date-holidays": "^3.26.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.0",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.6.0",
+    "@vscode/vsce": "^3.2.0"
+  }
+}
