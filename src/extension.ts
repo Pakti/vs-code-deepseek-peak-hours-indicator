@@ -14,7 +14,7 @@ export function activate(context: vscode.ExtensionContext): void {
     const now = new Date();
     const peak = isPeak(now);
     item.text = peak ? 'PEAK' : 'OFF-PEAK';
-    item.color = new vscode.ThemeColor(peak ? 'deepseekPeakHours.peakForeground' : 'deepseekPeakHours.offPeakForeground');
+    item.color = peak ? new vscode.ThemeColor('deepseekPeakHours.peakForeground') : undefined;
     item.tooltip = formatStatusTooltip(now, nextStatusChange(now), peak);
     item.show();
     // Refresh at boundaries and at most once per minute to mitigate system clock changes.
