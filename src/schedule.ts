@@ -44,6 +44,6 @@ export function formatStatusTooltip(now: Date, change: Date, peak: boolean): str
   const tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1).getTime();
   const time = `${String(change.getHours()).padStart(2, '0')}:${String(change.getMinutes()).padStart(2, '0')}`;
   const day = target === today ? '' : target === tomorrow ? 'tomorrow at ' :
-    `${change.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })} at `;
+    `${change.toLocaleDateString('en-US', { weekday: 'long' })} at `;
   return `${peak ? 'PEAK' : 'OFF-PEAK'} until ${day}${time}`;
 }
