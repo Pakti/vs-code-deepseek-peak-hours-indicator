@@ -21,20 +21,20 @@
         "id": "deepseekPeakHours.peakForeground",
         "description": "Text color during DeepSeek peak hours.",
         "defaults": {
-          "dark": "#c56b6b",
-          "light": "#a44848",
-          "highContrast": "#ff8888",
-          "highContrastLight": "#a44848"
+          "dark": "#ff4500",
+          "light": "#ff4500",
+          "highContrast": "#ff4500",
+          "highContrastLight": "#ff4500"
         }
       },
       {
         "id": "deepseekPeakHours.offPeakForeground",
         "description": "Text color during DeepSeek off-peak hours.",
         "defaults": {
-          "dark": "statusBar.foreground",
-          "light": "statusBar.foreground",
-          "highContrast": "statusBar.foreground",
-          "highContrastLight": "statusBar.foreground"
+          "dark": "#3794FF",
+          "light": "#3794FF",
+          "highContrast": "#3794FF",
+          "highContrastLight": "#3794FF"
         }
       }
     ],
@@ -43,12 +43,12 @@
       "properties": {
         "deepseekPeakHours.peakLabel": {
           "type": "string",
-          "default": "DS PEAK",
+          "default": "🐋",
           "description": "Status-bar label during peak hours."
         },
         "deepseekPeakHours.offPeakLabel": {
           "type": "string",
-          "default": "DS OFF-PEAK",
+          "default": "🐳",
           "description": "Status-bar label outside peak hours."
         }
       }
