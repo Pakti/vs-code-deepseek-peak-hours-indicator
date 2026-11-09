@@ -47,3 +47,11 @@ export function formatStatusTooltip(now: Date, change: Date, peak: boolean): str
     `${change.toLocaleDateString('en-US', { weekday: 'long' })} at `;
   return `DeepSeek is ${peak ? 'PEAK' : 'OFF-PEAK'} until ${day}${time}`;
 }
+
+/** Remaining time rounded up to whole minutes, including long weekends and holidays. */
+export function formatRemainingTime(now: Date, change: Date): string {
+  const milliseconds = change.getTime() - now.getTime();
+  const minutes = Math.max(0, Math.ceil(milliseconds / 60_000));
+  const hours = Math.floor(minutes / 60);
+  return `${String(hours).padStart(2, '0')}:${String(minutes % 60).padStart(2, '0')}`;
+}
