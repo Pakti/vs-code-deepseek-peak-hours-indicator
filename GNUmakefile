@@ -9,6 +9,5 @@ compile:
 test:
 	npm test
 
-
 clean:
 	rm -rf out
