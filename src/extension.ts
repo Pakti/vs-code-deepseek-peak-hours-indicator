@@ -15,7 +15,7 @@ export function activate(context: vscode.ExtensionContext): void {
     const peak = isPeak(now);
     const change = nextStatusChange(now);
     const config = vscode.workspace.getConfiguration('deepseekPeakHours');
-    const label = config.get<string>(peak ? 'peakLabel' : 'offPeakLabel', peak ? 'DS PEAK' : 'DS OFF-PEAK');
+    const label = config.get<string>(peak ? 'peakLabel' : 'offPeakLabel', peak ? '🐋' : '🐳');
     item.text = `${label} ${formatRemainingTime(now, change)}`;
     item.color = new vscode.ThemeColor(peak ? 'deepseekPeakHours.peakForeground' : 'deepseekPeakHours.offPeakForeground');
     item.tooltip = formatStatusTooltip(now, change, peak);
