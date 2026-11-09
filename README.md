@@ -18,11 +18,21 @@ To produce a distributable extension, run `npm run package`, then install the re
 
 ## Tooltip
 
-Hover over the indicator to see the next actual status change in your computer's
-local timezone, using a 24-hour clock. For example: `PEAK until 12:00`,
-`OFF-PEAK until tomorrow at 08:00`, or
-`OFF-PEAK until Monday at 02:00`. Public holidays and weekends are
-skipped when calculating the next switch. The tooltip refreshes automatically.
+Hover over the status-bar indicator to see when the current state will end.
+The tooltip uses your computer's local timezone and a 24-hour clock. Its text
+starts with `DeepSeek is PEAK` or `DeepSeek is OFF-PEAK`, independent of
+your customized status-bar labels.
+
+Examples:
+
+- `DeepSeek is PEAK until 12:00` - the next switch is today.
+- `DeepSeek is OFF-PEAK until tomorrow at 08:00` - the next switch is tomorrow.
+- `DeepSeek is OFF-PEAK until Monday at 02:00` - the next switch is later.
+
+The extension calculates the next **actual** state change, skipping peak windows
+that fall on weekends or Chinese public holidays. The tooltip refreshes as the
+status-bar indicator updates; the countdown in the indicator is the **remaining
+duration**, not the local clock time of the next switch.
 
 ## Customize labels and colors
 
