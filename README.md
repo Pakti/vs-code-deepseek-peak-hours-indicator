@@ -2,8 +2,8 @@
 
 A lightweight VS Code status-bar indicator for DeepSeek UTC peak hours.
 
-- **🐋** in orange-red, Monday-Friday at **01:00-04:00 UTC** and **06:00-10:00 UTC**.
-- **🐳** in blue by default otherwise, including Chinese public holidays.
+- **DS PEAK** in orange-red, Monday-Friday at **01:00-04:00 UTC** and **06:00-10:00 UTC**.
+- **DS OFF-PEAK** in blue by default otherwise, including Chinese public holidays.
 - Both ranges are inclusive at the start and exclusive at the end.
 - Weekends are always off-peak, even if marked as make-up working days in China.
 - Uses **UTC date** for holiday lookup as well as UTC time for the schedule.
@@ -34,8 +34,8 @@ Set the two label strings in `deepseekPeakHours.peakLabel` and
 
 ```json
 {
-  "deepseekPeakHours.peakLabel": "🐋",
-  "deepseekPeakHours.offPeakLabel": "🐳",
+  "deepseekPeakHours.peakLabel": "DS PEAK",
+  "deepseekPeakHours.offPeakLabel": "DS OFF-PEAK",
   "workbench.colorCustomizations": {
     "deepseekPeakHours.peakForeground": "#ff4500",
     "deepseekPeakHours.offPeakForeground": "#3794FF"
@@ -44,7 +44,7 @@ Set the two label strings in `deepseekPeakHours.peakLabel` and
 ```
 
 For example, with 2 hours and 15 minutes remaining, the indicator displays
-`🐋 02:15` or `🐳 02:15`. The tooltip continues to display
+`DS PEAK 02:15` or `DS OFF-PEAK 02:15`. The tooltip continues to display
 the next switch in your local time.
 
 ## Holiday data caveat
