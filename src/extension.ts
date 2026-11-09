@@ -13,7 +13,7 @@ export function activate(context: vscode.ExtensionContext): void {
     if (timer) clearTimeout(timer);
     const now = new Date();
     const peak = isPeak(now);
-    item.text = peak ? 'PEAK' : 'OFF-PEAK';
+    item.text = peak ? 'DS PEAK' : 'DS OFF-PEAK';
     item.color = peak ? new vscode.ThemeColor('deepseekPeakHours.peakForeground') : undefined;
     item.tooltip = formatStatusTooltip(now, nextStatusChange(now), peak);
     item.show();
