@@ -2,12 +2,13 @@
 
 A lightweight VS Code status-bar indicator for DeepSeek UTC peak hours.
 
-- **PEAK** in muted red, Monday-Friday at **01:00-04:00 UTC** and **06:00-10:00 UTC**.
-- **OFF-PEAK** in the default status-bar foreground color otherwise, including Chinese public holidays.
+- **DS PEAK** in muted red, Monday-Friday at **01:00-04:00 UTC** and **06:00-10:00 UTC**.
+- **DS OFF-PEAK** in the theme's status-bar foreground color by default otherwise, including Chinese public holidays.
 - Both ranges are inclusive at the start and exclusive at the end.
 - Weekends are always off-peak, even if marked as make-up working days in China.
 - Uses **UTC date** for holiday lookup as well as UTC time for the schedule.
-- Works offline; updates at clock boundaries and at least once per minute while VS Code is active.
+- A remaining-time countdown is appended to the status-bar label as `hh:mm`, rounded up to whole minutes and refreshed at minute boundaries. For durations over 24 hours, hours continue above 23 (for example `63:00`).
+- Works offline; updates at schedule boundaries and each minute while VS Code is active.
 
 ## Develop
 
@@ -23,17 +24,29 @@ local timezone, using a 24-hour clock. For example: `PEAK until 12:00`,
 `OFF-PEAK until Monday at 02:00`. Public holidays and weekends are
 skipped when calculating the next switch. The tooltip refreshes automatically.
 
-## Colors
+## Customize labels and colors
 
-The status bar **text** is colored, not the item background. The **PEAK** text defaults to muted red (`#c56b6b` on dark themes); **OFF-PEAK** uses the theme's default foreground. Customize the peak color using:
+The status bar uses **foreground** colors only. Both colors can be customized in
+`workbench.colorCustomizations`; by default the peak label is muted red, while
+the off-peak label inherits `statusBar.foreground` from your theme.
+
+Set the two label strings in `deepseekPeakHours.peakLabel` and
+`deepseekPeakHours.offPeakLabel`. Changes apply without restarting VS Code:
 
 ```json
 {
+  "deepseekPeakHours.peakLabel": "DS PEAK",
+  "deepseekPeakHours.offPeakLabel": "DS OFF-PEAK",
   "workbench.colorCustomizations": {
-    "deepseekPeakHours.peakForeground": "#c56b6b"
+    "deepseekPeakHours.peakForeground": "#c56b6b",
+    "deepseekPeakHours.offPeakForeground": "#79ae89"
   }
 }
 ```
+
+For example, with 2 hours and 15 minutes remaining, the indicator displays
+`DS PEAK 02:15` or `DS OFF-PEAK 02:15`. The tooltip continues to display
+the next switch in your local time.
 
 ## Holiday data caveat
 
