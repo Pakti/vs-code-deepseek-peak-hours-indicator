@@ -47,6 +47,25 @@ For example, with 2 hours and 15 minutes remaining, the indicator displays
 `DS PEAK 02:15` or `DS OFF-PEAK 02:15`. The tooltip continues to display
 the next switch in your local time.
 
+## Optional whale emoji labels
+
+If your system supports emoji rendering in the VS Code status bar, you can
+replace the default text labels with whales in your user `settings.json`:
+
+```json
+{
+  "deepseekPeakHours.peakLabel": "🐋",
+  "deepseekPeakHours.offPeakLabel": "🐳"
+}
+```
+
+The remaining-time countdown still appears after the emoji, for example
+`🐋 02:15`. Emoji appearance depends on your operating system, installed
+fonts, and VS Code rendering. On some setups the glyphs may be missing,
+monochrome, or differently sized; emoji colors may also ignore the configured
+foreground colors. If you encounter these issues, keep the default
+`DS PEAK` and `DS OFF-PEAK` labels instead.
+
 ## Holiday data caveat
 
 The [date-holidays](https://www.npmjs.com/package/date-holidays) dependency supplies offline Chinese public holiday data. It selects only public holidays, not observances. Official arrangements can be released late, so update this dependency when annual Chinese State Council holiday schedules are announced. Unannounced future-year days may be inaccurate.
