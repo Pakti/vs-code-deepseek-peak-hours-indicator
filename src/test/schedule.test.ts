@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import { isPeak, nextBoundary, nextStatusChange, formatStatusTooltip } from '../schedule';
+import { isPeak, nextBoundary, nextStatusChange, formatStatusTooltip, formatRemainingTime } from '../schedule';
 
 const noHoliday = () => false;
 const at = (time: string) => new Date(time);
@@ -55,4 +55,12 @@ test('tooltip formats local time, today, tomorrow and a later date', () => {
   assert.equal(formatStatusTooltip(now, new Date(2026, 9, 26, 4), true), 'DeepSeek is PEAK until 04:00');
   assert.equal(formatStatusTooltip(now, new Date(2026, 9, 27, 1), false), 'DeepSeek is OFF-PEAK until tomorrow at 01:00');
   assert.equal(formatStatusTooltip(now, new Date(2026, 9, 29, 1), false), 'DeepSeek is OFF-PEAK until Thursday at 01:00');
+});
+
+test('countdown rounds up partial minutes and supports intervals longer than a day', () => {
+  assert.equal(formatRemainingTime(at('2026-10-26T01:00:00Z'), at('2026-10-26T04:00:00Z')), '03:00');
+  assert.equal(formatRemainingTime(at('2026-10-26T01:00:01Z'), at('2026-10-26T04:00:00Z')), '03:00');
+  assert.equal(formatRemainingTime(at('2026-10-26T03:59:59Z'), at('2026-10-26T04:00:00Z')), '00:01');
+  assert.equal(formatRemainingTime(at('2026-10-26T04:00:00Z'), at('2026-10-26T04:00:00Z')), '00:00');
+  assert.equal(formatRemainingTime(at('2026-10-23T10:00:00Z'), at('2026-10-26T01:00:00Z')), '63:00');
 });
