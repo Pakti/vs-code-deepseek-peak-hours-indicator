@@ -26,8 +26,33 @@
           "highContrast": "#ff8888",
           "highContrastLight": "#a44848"
         }
+      },
+      {
+        "id": "deepseekPeakHours.offPeakForeground",
+        "description": "Text color during DeepSeek off-peak hours.",
+        "defaults": {
+          "dark": "statusBar.foreground",
+          "light": "statusBar.foreground",
+          "highContrast": "statusBar.foreground",
+          "highContrastLight": "statusBar.foreground"
+        }
       }
-    ]
+    ],
+    "configuration": {
+      "title": "DeepSeek Peak Hours",
+      "properties": {
+        "deepseekPeakHours.peakLabel": {
+          "type": "string",
+          "default": "DS PEAK",
+          "description": "Status-bar label during peak hours."
+        },
+        "deepseekPeakHours.offPeakLabel": {
+          "type": "string",
+          "default": "DS OFF-PEAK",
+          "description": "Status-bar label outside peak hours."
+        }
+      }
+    }
   },
   "scripts": {
     "compile": "tsc -p ./",
